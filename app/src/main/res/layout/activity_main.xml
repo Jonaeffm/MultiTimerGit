@@ -6,25 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-        <TimePicker
-            android:id="@+id/timePicker1"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp" />
+            android:text="TextView" />
+
+        <EditText
+            android:id="@+id/editTextNumberDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:layout_below="@+id/textView"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_below="@+id/editTextNumberDecimal"/>
 
         <EditText
             android:id="@+id/et_simple"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_below="@+id/timePicker1">
+            android:layout_below="@+id/textView2">
         </EditText>
 
-    <Button
+        <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,5 +78,6 @@
                 android:layout_height="wrap_content"
                 android:text="Tab5" />
         </com.google.android.material.tabs.TabLayout>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
