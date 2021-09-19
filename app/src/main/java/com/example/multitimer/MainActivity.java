@@ -22,8 +22,12 @@ public class MainActivity extends AppCompatActivity {
     public void onClickBtn(View v)
     {
         button.setText("geklickt");
-        //TabItem ti = new TabItem();
-        //ti.setN
+
+        TabLayout.Tab tab = tl.newTab();
+
+
+
+        tl.addTab(tab);
     }
 
 
