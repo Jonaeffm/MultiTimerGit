@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         tab.setContentDescription("testContent");
         tl.addTab(tab);*/
 
-        tl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
+        {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
             // get the current selected tab's position and replace the fragment accordingly
