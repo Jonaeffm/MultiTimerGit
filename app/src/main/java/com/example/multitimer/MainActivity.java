@@ -20,7 +20,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     Button button;
     TabLayout tl;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-            // get the current selected tab's position and replace the fragment accordingly
+                // get the current selected tab's position and replace the fragment accordingly
                 Fragment fragment = null;
                 switch (tab.getPosition()) {
                     case 0:
@@ -80,26 +81,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-        }
 
+            // @Override
+            public void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+                button = (Button) findViewById(R.id.button1);
+                tl = (TabLayout) findViewById(R.id.tabs);
+                et = (EditText) findViewById(R.id.et_simple);
 
-
-
-           // @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.button1);
-        tl=(TabLayout) findViewById(R.id.tabs);
-        et=(EditText) findViewById(R.id.et_simple);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                onClickBtn(v);
+                button.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        onClickBtn(v);
+                    }
+                });
             }
-        });
+        }
     }
-
-
 }
