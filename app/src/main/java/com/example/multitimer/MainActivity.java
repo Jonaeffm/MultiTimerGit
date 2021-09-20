@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.google.android.material.tabs.TabItem;
@@ -24,9 +26,18 @@ public class MainActivity extends AppCompatActivity {
     public void onClickBtn(View v)
     {
         button.setText("geklickt");
-        TabLayout.Tab tab = tl.newTab();
+
+
+        /* TabLayout.Tab tab = tl.newTab();
         tab.setText(et.getText());
-        tl.addTab(tab);
+       // TextView tv = new TextView(this);
+        //tv.setText("test");
+        tab.setContentDescription("testContent");
+        tl.addTab(tab);*/
+
+
+
+
     }
 
 
