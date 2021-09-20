@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
             }
 
-        }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
@@ -81,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
+
+        }
+
+
 
 
            // @Override
