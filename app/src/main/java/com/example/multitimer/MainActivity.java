@@ -31,22 +31,44 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity
 {
-
+    int zaehler;
     Button button;
     TabLayout tl;
     List<TabItem> til;
     EditText et ;
-    Fragment fragment = null;
+    FirstFragment fragment1 = null;
+    SecondFragment fragment2 = null;
     FrameLayout simpleFrameLayout;
-
+    TextView tv;
+    FragmentManager fm;
+    FragmentTransaction ft ;
+    TabLayout.Tab firstTab;
+    TabLayout.Tab secondTab;
 
     public void onClickBtn(View v) {
         button.setText("geklickt");
 
+        zaehler++;
         // Create a new Tab named "First"
-        TabLayout.Tab firstTab = tl.newTab();
-        firstTab.setText("First"); // set the Text for the first Tab
-        tl.addTab(firstTab); // add  the tab at in the TabLayout
+        switch (zaehler)
+        {
+            case 1:
+                firstTab = tl.newTab();
+                firstTab.setText("First"); // set the Text for the first Tab
+                tl.addTab(firstTab); // add  the tab at in the TabLayout
+
+
+
+                break;
+            case 2:
+                secondTab = tl.newTab();
+                secondTab.setText("Second"); // set the Text for the first Tab
+                tl.addTab(secondTab); // add  the tab at in the TabLayout
+
+
+
+                break;
+        }
 
         /* TabLayout.Tab tab = tl.newTab();
         tab.setText(et.getText());
@@ -61,24 +83,42 @@ public class MainActivity extends AppCompatActivity
             public void onTabSelected(TabLayout.Tab tab)
             {
 
+
+
                 // get the current selected tab's position and replace the fragment accordingly
-                Fragment fragment=null;
                 switch (tab.getPosition()) {
                     case 0:
-                        fragment = new FirstFragment();
+                        fragment1 = new FirstFragment();
+                        fm = getSupportFragmentManager();
+                        ft = fm.beginTransaction();
+                        ft.replace(R.id.simpleFrameLayout,fragment1);
+                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        ft.commit();
+                        View view = fragment1.getView();
+                        if (view!=null) {
+                            //tv.setText("test1");
+                            tv = view.findViewById(R.id.TextView11);
+
+                            tv.setText("test1");
+                        }
                         break;
                     case 1:
-                        fragment = new SecondFragment();
+                        fragment2 = new SecondFragment();
+                        fm = getSupportFragmentManager();
+                        ft = fm.beginTransaction();
+                        ft.replace(R.id.simpleFrameLayout,fragment2);
+                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        ft.commit();
+                       // tv= (TextView) SecondFragment.getView().findViewById(R.id.TextView22);
+                        //tv.setText("test2");
                         break;}
                     /*case 2:
                         fragment = new ThirdFragment();
                         break;*/
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
 
-                ft.replace(R.id.simpleFrameLayout,fragment);
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                ft.commit();
+
+
+
 
 
 
@@ -103,10 +143,13 @@ public class MainActivity extends AppCompatActivity
     // @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        zaehler = 0;
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.button1);
         tl = (TabLayout) findViewById(R.id.tabs);
         et = (EditText) findViewById(R.id.et_simple);
+
+
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
