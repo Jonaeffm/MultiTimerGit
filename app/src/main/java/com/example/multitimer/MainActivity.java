@@ -1,12 +1,16 @@
 package com.example.multitimer;
 
+
+
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -83,21 +87,23 @@ public class MainActivity extends AppCompatActivity
             }
 
 
-            // @Override
-            public void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_main);
-                button = (Button) findViewById(R.id.button1);
-                tl = (TabLayout) findViewById(R.id.tabs);
-                et = (EditText) findViewById(R.id.et_simple);
 
-                button.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        // TODO Auto-generated method stub
-                        onClickBtn(v);
-                    }
-                });
-            }
             });
+
+    }
+    // @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        button = (Button) findViewById(R.id.button1);
+        tl = (TabLayout) findViewById(R.id.tabs);
+        et = (EditText) findViewById(R.id.et_simple);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                onClickBtn(v);
+            }
+        });
     }
 }
