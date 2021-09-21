@@ -2,6 +2,7 @@ package com.example.multitimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
@@ -97,6 +98,6 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
             }
-        }
+            });
     }
 }
