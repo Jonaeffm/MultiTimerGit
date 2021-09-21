@@ -5,6 +5,8 @@ package com.example.multitimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+
 import androidx.fragment.app.FragmentManager;
 
 import androidx.fragment.app.FragmentTransaction;
@@ -32,12 +34,11 @@ public class MainActivity extends AppCompatActivity
     TabLayout tl;
     List<TabItem> til;
     EditText et ;
-
+    Fragment fragment = null;
     FrameLayout simpleFrameLayout;
 
 
-    public void onClickBtn(View v)
-    {
+    public void onClickBtn(View v) {
         button.setText("geklickt");
 
         // Create a new Tab named "First"
@@ -55,23 +56,24 @@ public class MainActivity extends AppCompatActivity
         tl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
         {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+            public void onTabSelected(TabLayout.Tab tab)
+            {
                 // get the current selected tab's position and replace the fragment accordingly
-                Fragment fragment = null;
-                switch (tab.getPosition()) {
-                    case 0:
-                        fragment = new FirstFragment();
-                        break;
+
+                /*switch (tab.getPosition()) {
+                    case 0:*/
+               Fragment  fragment = new FirstFragment();
+                //break;
                     /*case 1:
                         fragment = new SecondFragment();
                         break;
                     case 2:
                         fragment = new ThirdFragment();
                         break;*/
-                }
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.simpleFrameLayout, fragment);
+
+                ft.replace(R.id.simpleFrameLayout,fragment);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 ft.commit();
             }
@@ -88,9 +90,10 @@ public class MainActivity extends AppCompatActivity
 
 
 
-            });
 
+        });
     }
+
     // @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
