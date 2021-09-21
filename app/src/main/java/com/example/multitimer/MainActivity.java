@@ -3,6 +3,7 @@ package com.example.multitimer;
 
 
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -26,6 +27,7 @@ import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -58,16 +60,17 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTabSelected(TabLayout.Tab tab)
             {
-                // get the current selected tab's position and replace the fragment accordingly
 
-                /*switch (tab.getPosition()) {
-                    case 0:*/
-               Fragment  fragment = new FirstFragment();
-                //break;
-                    /*case 1:
-                        fragment = new SecondFragment();
+                // get the current selected tab's position and replace the fragment accordingly
+                Fragment fragment=null;
+                switch (tab.getPosition()) {
+                    case 0:
+                        fragment = new FirstFragment();
                         break;
-                    case 2:
+                    case 1:
+                        fragment = new SecondFragment();
+                        break;}
+                    /*case 2:
                         fragment = new ThirdFragment();
                         break;*/
                 FragmentManager fm = getSupportFragmentManager();
@@ -76,6 +79,9 @@ public class MainActivity extends AppCompatActivity
                 ft.replace(R.id.simpleFrameLayout,fragment);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 ft.commit();
+
+
+
             }
 
             @Override

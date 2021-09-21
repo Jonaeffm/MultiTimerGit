@@ -5,11 +5,11 @@
     tools:context="info.androidhive.materialtabs.fragments.OneFragment">
 
     <TextView
-        android:id="@+id/TextView11"
+        android:id="@+id/TextView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="First Fragment"
+        android:text="Second Fragment"
         android:textSize="40dp"
         android:textStyle="bold" />
 
