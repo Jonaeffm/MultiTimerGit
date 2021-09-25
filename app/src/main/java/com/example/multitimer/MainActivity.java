@@ -6,7 +6,7 @@ package com.example.multitimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
+import android.view.LayoutInflater;
 
 import androidx.fragment.app.FragmentManager;
 
@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -28,6 +29,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -94,13 +96,18 @@ public class MainActivity extends AppCompatActivity
                         ft.replace(R.id.simpleFrameLayout,fragment1);
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                         ft.commit();
-                        View view = fragment1.getView();
-                        if (view!=null) {
+                        /*View view = fragment1.getView();
+                        //if (view!=null) {
                             //tv.setText("test1");
-                            tv = view.findViewById(R.id.TextView11);
+                            tv =(TextView) view.findViewById(R.id.TextView11);
 
                             tv.setText("test1");
-                        }
+                        //}*/
+                        //Inflater inflater = new Inflater();
+                        //View view = inflater.inflate(R.layout.fragment_first, RelativeLayout, false);
+                       // tv =(TextView) view.findViewById(R.id.TextView11);
+                        //tv.setText("test1");
+
                         break;
                     case 1:
                         fragment2 = new SecondFragment();
@@ -111,7 +118,10 @@ public class MainActivity extends AppCompatActivity
                         ft.commit();
                        // tv= (TextView) SecondFragment.getView().findViewById(R.id.TextView22);
                         //tv.setText("test2");
-                        break;}
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + tab.getPosition());
+                }
                     /*case 2:
                         fragment = new ThirdFragment();
                         break;*/
