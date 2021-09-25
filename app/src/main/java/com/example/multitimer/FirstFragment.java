@@ -37,7 +37,7 @@ TextView tv = null;
                             tv =(TextView) view.findViewById(R.id.TextView11);
 
                             tv.setText("test1");
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        return view;
 
     }
 
