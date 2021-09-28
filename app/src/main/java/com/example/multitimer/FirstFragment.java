@@ -49,7 +49,7 @@ TextView tv = null;
                             //tv.setText("test1");
                             tv =(TextView) view.findViewById(R.id.TextView11);
 
-                            tv.setText("test1");
+                            tv.setText(Long.toString(data));
         return view;
 
     }

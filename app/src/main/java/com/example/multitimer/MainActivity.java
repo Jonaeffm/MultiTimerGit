@@ -4,6 +4,8 @@ package com.example.multitimer;
 
 
 
+import static android.os.SystemClock.sleep;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -96,6 +98,13 @@ public class MainActivity extends AppCompatActivity
                         ft.replace(R.id.simpleFrameLayout,fragment1);
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                         ft.commit();
+                        long i;
+                        for(i=0;i<1000;i++)
+                        {
+                            sleep(1000);
+                            fragment1.setData(i);
+                        }
+
                         /*View view = fragment1.getView();
                         //if (view!=null) {
                             //tv.setText("test1");
