@@ -1,11 +1,15 @@
 package com.example.multitimer;
 
-import com.google.android.material.tabs.TabItem;
-
 public class TabThread extends Thread
 {
-    public void run(TabItem ti)
-    {
+    public FirstFragment fragment1 = null;
 
+    public void run() {
+        long i;
+        for(i=0;i<1000;i++)
+        {
+            
+            fragment1.setData(i);
+        }
     }
 }

@@ -98,12 +98,10 @@ public class MainActivity extends AppCompatActivity
                         ft.replace(R.id.simpleFrameLayout,fragment1);
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                         ft.commit();
-                        long i;
-                        for(i=0;i<1000;i++)
-                        {
-                            sleep(1000);
-                            fragment1.setData(i);
-                        }
+
+                        TabThread tt = new TabThread();
+                        tt.fragment1 = fragment1;
+                        tt.start();
 
                         /*View view = fragment1.getView();
                         //if (view!=null) {
@@ -129,9 +127,12 @@ public class MainActivity extends AppCompatActivity
                         //tv.setText("test2");
                         break;
                     default:
+
                         throw new IllegalStateException("Unexpected value: " + tab.getPosition());
                 }
-                    /*case 2:
+
+
+                /*case 2:
                         fragment = new ThirdFragment();
                         break;*/
 
