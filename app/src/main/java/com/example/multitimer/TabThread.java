@@ -8,7 +8,7 @@ public class TabThread extends Thread
         long i;
         for(i=0;i<1000;i++)
         {
-            
+
             fragment1.setData(i);
         }
     }
