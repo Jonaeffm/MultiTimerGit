@@ -20,6 +20,19 @@ public class FirstFragment extends Fragment {
         tv.setText("test1");*/
     }
 
+    protected long data; // here your asynchronously loaded data
+
+    public void setData(long data) {
+        this.data = data;
+        // The reload fragment code here !
+        if (! this.isDetached()) {
+            getFragmentManager().beginTransaction()
+                    .detach(this)
+                    .attach(this)
+                    .commit();
+        }
+    }
+
    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
