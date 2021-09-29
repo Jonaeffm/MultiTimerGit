@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
                 firstTab.setText(et.getText()); // set the Text for the first Tab
                 tl.addTab(firstTab); // add  the tab at in the TabLayout
                 Timer t = new Timer();
-                t.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString()));
+                t.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
                 tlist.add(t);
 
                 break;
