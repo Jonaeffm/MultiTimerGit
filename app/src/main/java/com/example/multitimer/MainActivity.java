@@ -4,7 +4,10 @@ package com.example.multitimer;
 
 
 
+import static android.os.SystemClock.setCurrentTimeMillis;
 import static android.os.SystemClock.sleep;
+
+import static java.lang.System.currentTimeMillis;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -29,6 +32,7 @@ import android.widget.Toolbar;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.zip.Inflater;
@@ -39,7 +43,9 @@ public class MainActivity extends AppCompatActivity
     Button button;
     TabLayout tl;
     List<TabItem> til;
+    List<Timer> tlist=null;
     EditText et ;
+    EditText etm;
     FirstFragment fragment1 = null;
     SecondFragment fragment2 = null;
     FrameLayout simpleFrameLayout;
@@ -58,15 +64,16 @@ public class MainActivity extends AppCompatActivity
         {
             case 1:
                 firstTab = tl.newTab();
-                firstTab.setText("First"); // set the Text for the first Tab
+                firstTab.setText(et.getText()); // set the Text for the first Tab
                 tl.addTab(firstTab); // add  the tab at in the TabLayout
-
-
+                Timer t = new Timer();
+                t.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString()));
+                tlist.add(t);
 
                 break;
             case 2:
                 secondTab = tl.newTab();
-                secondTab.setText("Second"); // set the Text for the first Tab
+                secondTab.setText(et.getText()); // set the Text for the first Tab
                 tl.addTab(secondTab); // add  the tab at in the TabLayout
 
 
@@ -168,7 +175,7 @@ public class MainActivity extends AppCompatActivity
         button = (Button) findViewById(R.id.button1);
         tl = (TabLayout) findViewById(R.id.tabs);
         et = (EditText) findViewById(R.id.et_simple);
-
+    etm = (EditText) findViewById(R.id.editTextNumberDecimal);
 
 
         button.setOnClickListener(new View.OnClickListener() {
