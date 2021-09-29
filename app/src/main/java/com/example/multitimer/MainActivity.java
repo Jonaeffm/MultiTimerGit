@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
                         ft.commit();
 
                         TabThread tt = new TabThread();
-                        tt.fragment1 = fragment1;
+                        tt.setFragment1(fragment1);
                         tt.start();
 
                         /*View view = fragment1.getView();

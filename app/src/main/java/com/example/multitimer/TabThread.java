@@ -4,7 +4,15 @@ import static java.lang.Thread.sleep;
 
 public class TabThread extends Thread
 {
-    public FirstFragment fragment1 = null;
+    private FirstFragment fragment1 = null;
+
+    public void setFragment1(FirstFragment fragment1) {
+        this.fragment1 = fragment1;
+    }
+
+    public FirstFragment getFragment1() {
+        return fragment1;
+    }
 
     public void run() {
         long i;
