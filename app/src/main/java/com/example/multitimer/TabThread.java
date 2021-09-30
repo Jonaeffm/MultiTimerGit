@@ -3,9 +3,11 @@ package com.example.multitimer;
 import static java.lang.System.currentTimeMillis;
 import static java.lang.Thread.sleep;
 
+import androidx.fragment.app.Fragment;
+
 public class TabThread extends Thread
 {
-    private FirstFragment fragment1 = null;
+    private FragmentExtender fragment1 = null;
     private Timer t = null;
 
     public Timer getT() {
@@ -16,11 +18,11 @@ public class TabThread extends Thread
         this.t = t;
     }
 
-    public void setFragment1(FirstFragment fragment1) {
+    public void setFragment1(FragmentExtender fragment1) {
         this.fragment1 = fragment1;
     }
 
-    public FirstFragment getFragment1() {
+    public FragmentExtender getFragment1() {
         return fragment1;
     }
 

@@ -76,7 +76,9 @@ public class MainActivity extends AppCompatActivity
                 secondTab = tl.newTab();
                 secondTab.setText(et.getText()); // set the Text for the first Tab
                 tl.addTab(secondTab); // add  the tab at in the TabLayout
-
+                Timer t2 = new Timer();
+                t2.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
+                tlist.add(t2);
 
 
                 break;
@@ -135,6 +137,11 @@ public class MainActivity extends AppCompatActivity
                        // tv= (TextView) SecondFragment.getView().findViewById(R.id.TextView22);
                         //tv.setText("test2");
                         break;
+
+                    TabThread tt2 = new TabThread();
+                    tt2.setFragment1(fragment2);
+                    tt2.setT(tlist.get(1));
+                    tt2.start();
                     default:
 
                         throw new IllegalStateException("Unexpected value: " + tab.getPosition());
