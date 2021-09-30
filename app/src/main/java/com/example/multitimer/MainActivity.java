@@ -131,10 +131,10 @@ public class MainActivity extends AppCompatActivity
                     case 1:
                         //fragment2 = new SecondFragment();
 try {
-    tt.stop();
+    tt.interrupt();
 }catch(Exception e)
 {
-    
+
 }
                         //fm = getSupportFragmentManager();
                         //ft = fm.beginTransaction();

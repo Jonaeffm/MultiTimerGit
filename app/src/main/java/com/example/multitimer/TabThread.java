@@ -28,17 +28,20 @@ public class TabThread extends Thread
 
     public void run() {
         long i;
-        for(;;)
+        while (!interrupted())
         {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            long rest = (t.getEndTime()/1000)-(currentTimeMillis()/1000);
-            if(rest == 0)
-                break;
-            fragment1.setData(rest);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        long rest = (t.getEndTime()/1000)-(currentTimeMillis()/1000);
+        if(rest == 0)
+            break;
+        fragment1.setData(rest);
+    }
     }
 }
+
+
+
