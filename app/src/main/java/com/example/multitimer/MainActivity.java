@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     FragmentTransaction ft ;
     TabLayout.Tab firstTab;
     TabLayout.Tab secondTab;
+    TabThread tt;
 
     public void onClickBtn(View v) {
         button.setText("geklickt");
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                         ft.commit();
 
-                        TabThread tt = new TabThread();
+                        tt = new TabThread();
                         tt.setFragment1(fragment1);
                         tt.setT(tlist.get(0));
                         tt.start();
@@ -128,11 +129,19 @@ public class MainActivity extends AppCompatActivity
 
                         break;
                     case 1:
-                        fragment2 = new SecondFragment();
-
+                        //fragment2 = new SecondFragment();
+try {
+    tt.stop();
+}catch(Exception e)
+{
+    
+}
+                        //fm = getSupportFragmentManager();
+                        //ft = fm.beginTransaction();
                        /* ft.replace(R.id.simpleFrameLayout,fragment2);
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                         ft.commit();*/
+
                        // tv= (TextView) SecondFragment.getView().findViewById(R.id.TextView22);
                         //tv.setText("test2");
                         //TabThread tt2 = new TabThread();
