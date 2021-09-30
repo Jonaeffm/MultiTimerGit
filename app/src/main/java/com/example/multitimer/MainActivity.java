@@ -136,12 +136,13 @@ public class MainActivity extends AppCompatActivity
                         ft.commit();
                        // tv= (TextView) SecondFragment.getView().findViewById(R.id.TextView22);
                         //tv.setText("test2");
+                        TabThread tt2 = new TabThread();
+                        tt2.setFragment1(fragment2);
+                        tt2.setT(tlist.get(1));
+                        tt2.start();
                         break;
 
-                    TabThread tt2 = new TabThread();
-                    tt2.setFragment1(fragment2);
-                    tt2.setT(tlist.get(1));
-                    tt2.start();
+
                     default:
 
                         throw new IllegalStateException("Unexpected value: " + tab.getPosition());
