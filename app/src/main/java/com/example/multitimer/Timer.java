@@ -19,4 +19,8 @@ public class Timer {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Timer(){
+
+    }
 }
