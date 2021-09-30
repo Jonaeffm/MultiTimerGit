@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity
 
                         TabThread tt = new TabThread();
                         tt.setFragment1(fragment1);
+                        tt.setT(tlist.get(0));
                         tt.start();
 
                         /*View view = fragment1.getView();
