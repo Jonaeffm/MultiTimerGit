@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
                 tl.addTab(secondTab); // add  the tab at in the TabLayout
                 Timer t2 = new Timer();
                 t2.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
-                tlist= Arrays.asList(tlist.get(0),t2);
+               // tlist= Arrays.asList(tlist.get(0),t2);
 
 
                 break;
@@ -123,23 +123,22 @@ public class MainActivity extends AppCompatActivity
                         //}*/
                         //Inflater inflater = new Inflater();
                         //View view = inflater.inflate(R.layout.fragment_first, RelativeLayout, false);
-                       // tv =(TextView) view.findViewById(R.id.TextView11);
+                       //tv =(TextView) view.findViewById(R.id.TextView11);
                         //tv.setText("test1");
 
                         break;
                     case 1:
                         fragment2 = new SecondFragment();
-                        fm = getSupportFragmentManager();
-                        ft = fm.beginTransaction();
-                        ft.replace(R.id.simpleFrameLayout,fragment2);
+
+                       /* ft.replace(R.id.simpleFrameLayout,fragment2);
                         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                        ft.commit();
+                        ft.commit();*/
                        // tv= (TextView) SecondFragment.getView().findViewById(R.id.TextView22);
                         //tv.setText("test2");
-                        TabThread tt2 = new TabThread();
-                        tt2.setFragment1(fragment2);
-                        tt2.setT(tlist.get(1));
-                        tt2.start();
+                        //TabThread tt2 = new TabThread();
+                        //tt2.setFragment1(fragment2);
+                        //tt2.setT(tlist.get(1));
+                        //tt2.start();
                         break;
 
 
