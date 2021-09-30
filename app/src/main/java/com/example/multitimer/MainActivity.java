@@ -32,6 +32,7 @@ import android.widget.Toolbar;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity
                 tl.addTab(firstTab); // add  the tab at in the TabLayout
                 Timer t = new Timer();
                 t.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
-                tlist.add(t);
+                tlist= Arrays.asList(t);
 
                 break;
             case 2:
