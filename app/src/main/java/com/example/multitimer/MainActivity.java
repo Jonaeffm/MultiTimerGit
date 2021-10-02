@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
     FragmentTransaction ft ;
     TabLayout.Tab firstTab;
     TabLayout.Tab secondTab;
-    TabThread tt;
+    public static TabThread tt;
 
     public void onClickBtn(View v) {
         button.setText("geklickt");

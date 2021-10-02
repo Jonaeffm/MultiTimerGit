@@ -33,7 +33,7 @@ public class TabThread extends Thread
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            interrupt();
         }
         long rest = (t.getEndTime()/1000)-(currentTimeMillis()/1000);
         if(rest == 0)
