@@ -72,6 +72,18 @@ public class MainActivity extends AppCompatActivity
                 t.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
                 tlist= Arrays.asList(t);
 
+                fragment1 = new FirstFragment();
+                fm = getSupportFragmentManager();
+                ft = fm.beginTransaction();
+                ft.replace(R.id.simpleFrameLayout,fragment1);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                ft.commit();
+
+                tt = new TabThread();
+                tt.setFragment1(fragment1);
+                tt.setT(tlist.get(0));
+                tt.start();
+
                 break;
             case 2:
                 secondTab = tl.newTab();
@@ -103,7 +115,7 @@ public class MainActivity extends AppCompatActivity
                 // get the current selected tab's position and replace the fragment accordingly
                 switch (tab.getPosition()) {
                     case 0:
-                        fragment1 = new FirstFragment();
+                       /* fragment1 = new FirstFragment();
                         fm = getSupportFragmentManager();
                         ft = fm.beginTransaction();
                         ft.replace(R.id.simpleFrameLayout,fragment1);
@@ -113,7 +125,7 @@ public class MainActivity extends AppCompatActivity
                         tt = new TabThread();
                         tt.setFragment1(fragment1);
                         tt.setT(tlist.get(0));
-                        tt.start();
+                        tt.start();*/
 
                         /*View view = fragment1.getView();
                         //if (view!=null) {
