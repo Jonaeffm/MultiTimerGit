@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
                 secondTab = tl.newTab();
                 secondTab.setText(et.getText()); // set the Text for the first Tab
                 tl.addTab(secondTab); // add  the tab at in the TabLayout
-                tl.selectTab(secondTab);
+
                 Timer t2 = new Timer();
                 t2.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
                 tlist= Arrays.asList(tlist.get(0),t2);
@@ -102,10 +102,17 @@ public class MainActivity extends AppCompatActivity
                 {
 
                 }
+                try {
+                    tt2.interrupt();
+                }catch(Exception e)
+                {
+
+                }
                 tt2 = new TabThread();
                 tt2.setFragment1(fragment1);
                 tt2.setT(tlist.get(1));
                 tt2.start();
+                tl.selectTab(secondTab);
                 break;
         }
 
@@ -151,15 +158,41 @@ public class MainActivity extends AppCompatActivity
                        //tv =(TextView) view.findViewById(R.id.TextView11);
                         //tv.setText("test1");
 
+                        try {
+                            tt.interrupt();
+                        }catch(Exception e)
+                        {
+
+                        }
+                        try {
+                            tt2.interrupt();
+                        }catch(Exception e)
+                        {
+
+                        }
+                        tt = new TabThread();
+                        tt.setFragment1(fragment1);
+                        tt.setT(tlist.get(0));
+                        tt.start();
                         break;
                     case 1:
                         //fragment2 = new SecondFragment();
-try {
-    tt.interrupt();
-}catch(Exception e)
-{
+                        try {
+                            tt.interrupt();
+                        }catch(Exception e)
+                        {
 
-}
+                        }
+                        try {
+                            tt2.interrupt();
+                        }catch(Exception e)
+                        {
+
+                        }
+                        tt2 = new TabThread();
+                        tt2.setFragment1(fragment1);
+                        tt2.setT(tlist.get(1));
+                        tt2.start();
                         //fm = getSupportFragmentManager();
                         //ft = fm.beginTransaction();
                        /* ft.replace(R.id.simpleFrameLayout,fragment2);
