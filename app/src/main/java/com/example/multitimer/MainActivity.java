@@ -94,6 +94,13 @@ public class MainActivity extends AppCompatActivity
                 t2.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
                // tlist= Arrays.asList(tlist.get(0),t2);
 
+                try {
+                    tt.interrupt();
+                }
+                catch (Exception e)
+                {
+
+                }
                 tt2 = new TabThread();
                 tt2.setFragment1(fragment1);
                 tt2.setT(tlist.get(1));
