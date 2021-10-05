@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity
     TabLayout.Tab firstTab;
     TabLayout.Tab secondTab;
     public static TabThread tt;
+    public static TabThread tt2;
 
     public void onClickBtn(View v) {
         button.setText("geklickt");
@@ -93,7 +94,10 @@ public class MainActivity extends AppCompatActivity
                 t2.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
                // tlist= Arrays.asList(tlist.get(0),t2);
 
-
+                tt2 = new TabThread();
+                tt2.setFragment1(fragment1);
+                tt2.setT(tlist.get(1));
+                tt2.start();
                 break;
         }
 
