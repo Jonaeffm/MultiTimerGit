@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity
                 secondTab = tl.newTab();
                 secondTab.setText(et.getText()); // set the Text for the first Tab
                 tl.addTab(secondTab); // add  the tab at in the TabLayout
+                tl.selectTab(secondTab);
                 Timer t2 = new Timer();
                 t2.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
                 tlist= Arrays.asList(tlist.get(0),t2);
