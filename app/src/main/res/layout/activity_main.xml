@@ -48,6 +48,16 @@
         android:text="Get Date"
         android:onClick="onClickBtn" />
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="160dp"
+            android:text="reset"
+            android:onClick="onClickBtn2" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"

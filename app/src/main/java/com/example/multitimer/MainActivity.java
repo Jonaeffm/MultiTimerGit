@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity
 {
     int zaehler;
     Button button;
+    Button button2;
     TabLayout tl;
     List<TabItem> til;
     List<Timer> tlist=null;
@@ -57,6 +58,25 @@ public class MainActivity extends AppCompatActivity
     TabLayout.Tab secondTab;
     public static TabThread tt;
     public static TabThread tt2;
+
+    public void onClickBtn2(View v)
+    {
+        try {
+            tt.interrupt();
+        }
+        catch (Exception e)
+        {
+
+        }
+        try {
+            tt2.interrupt();
+        }catch(Exception e)
+        {
+
+        }
+        tl.removeAllTabs();
+        zaehler = 0;
+    }
 
     public void onClickBtn(View v) {
         button.setText("geklickt");
@@ -248,6 +268,7 @@ public class MainActivity extends AppCompatActivity
         zaehler = 0;
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
         tl = (TabLayout) findViewById(R.id.tabs);
         et = (EditText) findViewById(R.id.et_simple);
     etm = (EditText) findViewById(R.id.editTextNumberDecimal);
@@ -257,6 +278,13 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 onClickBtn(v);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                onClickBtn2(v);
             }
         });
     }
