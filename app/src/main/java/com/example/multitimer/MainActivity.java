@@ -120,7 +120,7 @@ boolean isReset=false;
 
                 }
 
-                if(!isReset)
+
                     tt = new TabThread();
                 tt.setFragment1(fragment1);
                 tt.setT(tlist.get(0));
