@@ -27,17 +27,19 @@ public class TabThread extends Thread
     }
 
     public void run() {
+
         long i;
         while (!interrupted())
         {
+            long rest = (t.getEndTime()/1000)-(currentTimeMillis()/1000);
+            if(rest < 0)
+                break;
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             interrupt();
         }
-        long rest = (t.getEndTime()/1000)-(currentTimeMillis()/1000);
-        if(rest == 0)
-            break;
+
         fragment1.setData(rest);
     }
     }

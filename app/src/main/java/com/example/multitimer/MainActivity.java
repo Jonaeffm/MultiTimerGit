@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     EditText et ;
     EditText etm;
     FirstFragment fragment1 = null;
-    SecondFragment fragment2 = null;
+
     FrameLayout simpleFrameLayout;
     TextView tv;
     FragmentManager fm;
