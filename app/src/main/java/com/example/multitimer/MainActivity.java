@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
     EditText et ;
     EditText etm;
     FirstFragment fragment1 = null;
-
+boolean isReset=false;
     FrameLayout simpleFrameLayout;
     TextView tv;
     FragmentManager fm;
@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity
         }
         tl.removeAllTabs();
         zaehler = 0;
+    isReset=true;
+
     }
 
     public void onClickBtn(View v) {
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity
         switch (zaehler)
         {
             case 1:
+
                 firstTab = tl.newTab();
                 firstTab.setText(et.getText()); // set the Text for the first Tab
                 tl.addTab(firstTab); // add  the tab at in the TabLayout
@@ -93,14 +96,32 @@ public class MainActivity extends AppCompatActivity
                 t.setEndTime(currentTimeMillis()+Long.parseLong(etm.getText().toString())*60000);
                 tlist= Arrays.asList(t);
 
-                fragment1 = new FirstFragment();
-                fm = getSupportFragmentManager();
+
+
+                if(!isReset){
+                    fragment1 = new FirstFragment();
+                    fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
                 ft.replace(R.id.simpleFrameLayout,fragment1);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                ft.commit();
+                ft.commit();}
 
-                tt = new TabThread();
+                try {
+                    tt.interrupt();
+                }
+                catch (Exception e)
+                {
+
+                }
+                try {
+                    tt2.interrupt();
+                }catch(Exception e)
+                {
+
+                }
+
+                if(!isReset)
+                    tt = new TabThread();
                 tt.setFragment1(fragment1);
                 tt.setT(tlist.get(0));
                 tt.start();
